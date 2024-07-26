@@ -1,0 +1,21 @@
+<nav>
+    {% load static %}
+    <div class="nav-wrapper nav-style" style="background-color: #000000;">
+
+      <a href="/" class="brand-logo" style="padding-left: 25px;">
+        <img class="responsive-img"  src="{% static 'images/nav_bg.png' %}" alt="img" style="width: 245px; height: auto;  padding-top: 5px;">
+      </a>
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/" style="font-size: 20px;">Home</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="/account" style="font-size: 17px; display: flex; gap: 4px;"><i class="material-icons">account_circle</i>{{user.username}}</a></li>
+          <li><a href="/logout" style="padding-right: 20px; font-size: 20px;">Logout</a></li>
+        {% else %}
+          <li><a href="/register" style="font-size: 20px;">Register</a></li>
+          <li><a href="/login" style="padding-right: 20px; font-size: 20px;">Login</a></li>
+        {% endif %}
+      </ul>
+    </div>
+</nav>
+
