@@ -10,6 +10,7 @@ class TutorialCategory(models.Model):
     category_summary = models.CharField(max_length=200)
     # it will store the url
     category_slug = models.CharField(max_length=200)
+    category_image = models.CharField(max_length=500 , default=1)
 
     class Meta:
         verbose_name_plural = "Categories"
@@ -21,6 +22,7 @@ class TutorialSeries(models.Model):
     tutorial_series = models.CharField(max_length=200)
     tutorial_category = models.ForeignKey(TutorialCategory,default=1,verbose_name="Category",on_delete=models.SET_DEFAULT)
     series_summary = models.CharField(max_length=200)
+    series_image = models.CharField(max_length=500, default=1)
 
     class Meta:
         verbose_name_plural = "Series"

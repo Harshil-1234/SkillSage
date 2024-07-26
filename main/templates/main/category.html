@@ -6,9 +6,10 @@
         {% for tut, partone in part_ones.items %}
 
             <div class="col s12 m6 l4">
-                <a href="/{{partone}}/", style="color:#000">
+                <a href="{{partone}}", style="color:#000">
                     <div class="card hoverable">
                         <div class="card-content">
+                            <img src="{{tut.series_image}}" alt="img" style="width: 100%; padding-bottom: 14px;">
                             <div class="card-title">{{tut.tutorial_series}}</div>
                             <p>{{tut.series_summary}}</p>
                         </div>

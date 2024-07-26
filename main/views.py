@@ -12,13 +12,15 @@ def single_slug(request,single_slug):
         matching_series = TutorialSeries.objects.filter(tutorial_category__category_slug=single_slug)
         series_urls = {}
 
+        series_category = matching_series[0].tutorial_category   
         for m in matching_series.all():
             part_one = Tutorial.objects.filter(tutorial_series__tutorial_series=m.tutorial_series).earliest("tutorial_published")
             series_urls[m] = part_one.tutorial_slug
 
         return render(request,
                       "main/category.html",
-                      {"part_ones":series_urls}
+                      {"part_ones":series_urls,
+                       "series_category":series_category}
                       )
     
     tutorials = [t.tutorial_slug for t in Tutorial.objects.all()]
